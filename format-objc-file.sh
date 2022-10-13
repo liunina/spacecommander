@@ -62,7 +62,7 @@ function format_objc_file_dry_run() {
 	line="$(head -1 "$FILE" |
 		sed "s/\'/\\\'/" |
 		sed 's/\"/\\\"/' |
-		xargs)"
+		xargs -0)"
 	if [ "$line" == "#pragma Formatter Exempt" -o "$line" == "// MARK: Formatter Exempt" ]; then
 		cat "$1"
 		return
